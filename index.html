@@ -349,7 +349,7 @@
       </div>
       <div class="foot-col">
         <h4>Contacto</h4>
-        <a href="https://wa.me/573204210414" target="_blank">WhatsApp</a>
+        <a href="https://wa.me/573204210714" target="_blank">WhatsApp</a>
         <a href="#">Instagram</a>
         <a href="#">Medellín, Colombia</a>
       </div>
@@ -505,16 +505,23 @@ function renderCart(){
 function checkoutWhatsApp(){
   const ids = Object.keys(cart);
   if(ids.length === 0) return;
-  let msg = 'Hola! Quiero pedir:%0A';
+  let msg = 'Hola, Luci Postres 👋 Quiero hacer este pedido:%0A%0A';
   let total = 0;
   ids.forEach(id => {
     const p = PRODUCTS.find(x => x.id === id);
     const qty = cart[id];
     total += p.price * qty;
-    msg += `- ${p.name} x${qty}%0A`;
+    msg += `• ${p.name} x${qty}%0A`;
   });
-  msg += `Total: ${fmt(total)}`;
-  window.open('https://wa.me/573204210414?text=' + msg, '_blank');
+  msg += `%0ATotal: ${fmt(total)}%0A%0A`;
+  msg += 'Para el envío les comparto mis datos:%0A';
+  msg += 'Nombre completo: %0A';
+  msg += 'Dirección de entrega: %0A';
+  msg += 'Barrio / punto de referencia: %0A';
+  msg += 'Fecha y hora en que lo necesito: %0A';
+  msg += 'Método de pago: %0A%0A';
+  msg += 'Quedo atento(a) a la confirmación. ¡Gracias!';
+  window.open('https://wa.me/573204210714?text=' + msg, '_blank');
 }
 
 function showView(name){
